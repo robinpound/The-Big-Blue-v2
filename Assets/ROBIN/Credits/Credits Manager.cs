@@ -14,7 +14,7 @@ public class CreditsManager : MonoBehaviour
         Debug.Log("Disabled");
         controls.Disable();
     }
-    public void FixedUpdate() {
+    public void Update() {
         if(controls.triggered) {
             Debug.Log("Pressed");
             SceneManager.LoadSceneAsync(0);
