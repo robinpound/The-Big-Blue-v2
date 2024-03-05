@@ -988,8 +988,48 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Robin Pound\n\nOwen Pike\nTao ...\nAntony...\n\nArjun....\nDavid...\n\nGilbert....\n\nRobin
-    Pound\n\nBob...\nBob...\nBob...\nBob...\nBob...\n\nFarhan... \nBob...\nJim...\n\n"
+  m_text: 'Robin Pound
+
+
+    Owen Pyke
+
+    Tao Markey
+
+    Antony Borji
+
+
+    Arjun
+    Ballal
+
+    David Ozga
+
+
+    Gilbert Kozanowski
+
+
+    Robin Pound
+
+
+    TBD
+
+    TBD
+
+    TBD
+
+    TBD
+
+    TBD
+
+
+    Farhan
+    Ahmed
+
+    Craig Brown
+
+    James McCormick
+
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
