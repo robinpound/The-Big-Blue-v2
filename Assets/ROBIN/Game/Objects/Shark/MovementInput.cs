@@ -20,6 +20,7 @@ public class MovementInput : MonoBehaviour
     [Header("References")]
     public Rigidbody rb;
     public GameObject sharkCamera;
+    public Animator animator;
 
     [Header("Settings")]
     public float rotationSpeed;

@@ -218,8 +218,9 @@ MonoBehaviour:
     m_Flags: 0
   rb: {fileID: 8118599304996930108}
   sharkCamera: {fileID: 0}
+  animator: {fileID: 0}
   rotationSpeed: 5
-  swimSpeed: 30
+  swimSpeed: 7
 --- !u!54 &8118599304996930108
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -314,6 +315,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Low Poly Unwrapped
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: f9312de0ae96a324cbbc6f8c374e33f9,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 70e0896cff823044cb3971c451fdadbe, type: 2}
+    - target: {fileID: 5866666021909216657, guid: f9312de0ae96a324cbbc6f8c374e33f9,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
