@@ -23,6 +23,13 @@ public class MovementInput : MonoBehaviour
     public float rotationSpeed;
     public float swimSpeed;
 
+    [Header("InternalVaribles")]
+    private Vector3 previousRotation;
+
+    public void Start() {
+        previousRotation = transform.rotation.eulerAngles;
+    }
+
     public void OnEnable() {
         LeftStick.Enable();  
         RightStick.Enable();  
@@ -58,13 +65,16 @@ public class MovementInput : MonoBehaviour
             // Calculate rotation based on input direction
             Quaternion desiredRotation = Quaternion.LookRotation(inputDirection, Vector3.up);
 
-            // Assign the new rotation to the transform
-            // transform.rotation = desiredRotation;
-            //transform.rotation = Quaternion.RotateTowards(transform.rotation, desiredRotation, rotationSpeed * Time.fixedDeltaTime);
+            CalculateRotationChange();
 
             float t = 1f - Mathf.Exp(-rotationSpeed * Time.fixedDeltaTime);
-            transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, t);
-            rb.AddForce(transform.forward * swimSpeed * cameraSharkForwardDirection.magnitude, ForceMode.Force);
+            transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, t);                        // Rotate
+            rb.AddForce(transform.forward * swimSpeed * cameraSharkForwardDirection.magnitude, ForceMode.Force); // Swim
         }
+    }
+    public void CalculateRotationChange(){
+        float yRotationChange = transform.rotation.eulerAngles.y - previousRotation.y;
+        Debug.Log(yRotationChange);
+        previousRotation = transform.rotation.eulerAngles; // for next time        
     }
 }
