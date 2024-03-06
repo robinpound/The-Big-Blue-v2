@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class MovementInput : MonoBehaviour
 {
@@ -53,28 +55,36 @@ public class MovementInput : MonoBehaviour
     }
     public void FixedUpdate()
     {
-        Vector2 leftStickInput = LeftStick.ReadValue<Vector2>();
-        if (leftStickInput != new Vector2(0f,0f)){
-            Vector3 cameraSharkForwardDirection = sharkCamera.transform.forward;
-            cameraSharkForwardDirection.y = 0f;
-            cameraSharkForwardDirection.Normalize();
-
-            // Input From Left Stick
-            Vector3 inputDirection = sharkCamera.transform.right * leftStickInput.x + cameraSharkForwardDirection * leftStickInput.y;
-            
-            // Calculate rotation based on input direction
-            Quaternion desiredRotation = Quaternion.LookRotation(inputDirection, Vector3.up);
-
-            CalculateRotationChange();
-
-            float t = 1f - Mathf.Exp(-rotationSpeed * Time.fixedDeltaTime);
-            transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, t);                        // Rotate
-            rb.AddForce(transform.forward * swimSpeed * cameraSharkForwardDirection.magnitude, ForceMode.Force); // Swim
+        AnimateRotations();
+        if (LeftStick.ReadValue<Vector2>() != new Vector2(0f,0f)){
+            RotateTo();
+            SwimForward();
         }
     }
-    public void CalculateRotationChange(){
-        float yRotationChange = transform.rotation.eulerAngles.y - previousRotation.y;
-        Debug.Log(yRotationChange);
-        previousRotation = transform.rotation.eulerAngles; // for next time        
+
+    private void SwimForward()
+    {
+        rb.AddForce(transform.forward * swimSpeed, ForceMode.Force); // Swim
+    }
+
+    private void RotateTo()
+    {
+        Vector2 leftStickInput = LeftStick.ReadValue<Vector2>();
+        Vector3 cameraSharkForwardDirection = sharkCamera.transform.forward;
+        cameraSharkForwardDirection.y = 0f;
+        cameraSharkForwardDirection.Normalize();
+
+        Vector3 inputDirection = sharkCamera.transform.right * leftStickInput.x + cameraSharkForwardDirection * leftStickInput.y;
+        Quaternion desiredRotation = Quaternion.LookRotation(inputDirection, Vector3.up);
+
+        float t = 1f - Mathf.Exp(-rotationSpeed * Time.fixedDeltaTime);               // Apply Exponential rotation
+        transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, t); // Rotate
+    }
+
+    public void AnimateRotations(){
+        float xRotationChange = transform.rotation.eulerAngles.x - previousRotation.x;
+        float yRotationChange = transform.rotation.eulerAngles.y - previousRotation.y; // left, right 
+        float zRotationChange = transform.rotation.eulerAngles.z - previousRotation.z;
+        previousRotation = transform.rotation.eulerAngles; // update for next time        
     }
 }
