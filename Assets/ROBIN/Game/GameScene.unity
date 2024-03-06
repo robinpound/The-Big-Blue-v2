@@ -1921,6 +1921,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2087963981154389961, guid: 55f2c4950ad612d4b97d399f431c2aaa,
         type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 3620577320506570492}
+    - target: {fileID: 2087963981154389961, guid: 55f2c4950ad612d4b97d399f431c2aaa,
+        type: 3}
       propertyPath: sharkCamera
       value: 
       objectReference: {fileID: 385156967}
@@ -1984,6 +1989,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55f2c4950ad612d4b97d399f431c2aaa, type: 3}
+--- !u!95 &3620577320506570492 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3985753898281148715, guid: 55f2c4950ad612d4b97d399f431c2aaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 3620577320506570491}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

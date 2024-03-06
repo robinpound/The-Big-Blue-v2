@@ -31,6 +31,7 @@ public class MovementInput : MonoBehaviour
 
     public void Start() {
         previousRotation = transform.rotation.eulerAngles;
+        //animator.SetFloat("Rx", xAxisAnimation, 0f, Time.deltaTime);
     }
 
     public void OnEnable() {
@@ -54,6 +55,7 @@ public class MovementInput : MonoBehaviour
         XButton.Disable();  
         AButton.Disable();
     }
+    
     public void FixedUpdate()
     {
         Animate();
