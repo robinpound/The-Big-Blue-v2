@@ -21,6 +21,7 @@ public class MovementInput : MonoBehaviour
 
     [Header("Settings")]
     public float rotationSpeed;
+    public float swimSpeed;
 
     public void OnEnable() {
         LeftStick.Enable();  
@@ -51,17 +52,19 @@ public class MovementInput : MonoBehaviour
             cameraSharkForwardDirection.y = 0f;
             cameraSharkForwardDirection.Normalize();
 
-            // Read input from the left stick of the controller
+            // Input From Left Stick
             Vector3 inputDirection = sharkCamera.transform.right * leftStickInput.x + cameraSharkForwardDirection * leftStickInput.y;
             
-            // Calculate the rotation based on the input direction
-            Quaternion newRotation = Quaternion.LookRotation(inputDirection, Vector3.up);
+            // Calculate rotation based on input direction
+            Quaternion desiredRotation = Quaternion.LookRotation(inputDirection, Vector3.up);
 
             // Assign the new rotation to the transform
-            //transform.rotation = newRotation;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, rotationSpeed * Time.fixedDeltaTime);
+            // transform.rotation = desiredRotation;
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, desiredRotation, rotationSpeed * Time.fixedDeltaTime);
 
-            //rb.AddForce( inputDirection * FORCEMULTIPLIER, ForceMode.Acceleration);
+            float t = 1f - Mathf.Exp(-rotationSpeed * Time.fixedDeltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, t);
+            rb.AddForce(transform.forward * swimSpeed * cameraSharkForwardDirection.magnitude, ForceMode.Force);
         }
     }
 }
