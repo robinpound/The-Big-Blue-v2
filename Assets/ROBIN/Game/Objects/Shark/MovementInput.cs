@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class MovementInput : MonoBehaviour
 {
+    [Header("X-box Controller Inputs")]
     public InputAction LeftStick;
     public InputAction RightStick;
     public InputAction LT;
@@ -13,6 +14,13 @@ public class MovementInput : MonoBehaviour
     public InputAction YButton;
     public InputAction XButton;
     public InputAction AButton;
+
+    [Header("References")]
+    public Rigidbody rb;
+    public GameObject sharkCamera;
+
+    [Header("Settings")]
+    public float rotationSpeed;
 
     public void OnEnable() {
         LeftStick.Enable();  
@@ -37,8 +45,23 @@ public class MovementInput : MonoBehaviour
     }
     public void FixedUpdate()
     {
-        Debug.Log(RightStick.ReadValue<Vector2>());
-        transform.position += new Vector3(LeftStick.ReadValue<Vector2>().x, 0f, LeftStick.ReadValue<Vector2>().y) * 0.2f;
-        transform.position += new Vector3(RightStick.ReadValue<Vector2>().x, 0f, RightStick.ReadValue<Vector2>().y) * 0.2f;
+        Vector2 leftStickInput = LeftStick.ReadValue<Vector2>();
+        if (leftStickInput != new Vector2(0f,0f)){
+            Vector3 cameraSharkForwardDirection = sharkCamera.transform.forward;
+            cameraSharkForwardDirection.y = 0f;
+            cameraSharkForwardDirection.Normalize();
+
+            // Read input from the left stick of the controller
+            Vector3 inputDirection = sharkCamera.transform.right * leftStickInput.x + cameraSharkForwardDirection * leftStickInput.y;
+            
+            // Calculate the rotation based on the input direction
+            Quaternion newRotation = Quaternion.LookRotation(inputDirection, Vector3.up);
+
+            // Assign the new rotation to the transform
+            //transform.rotation = newRotation;
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, rotationSpeed * Time.fixedDeltaTime);
+
+            //rb.AddForce( inputDirection * FORCEMULTIPLIER, ForceMode.Acceleration);
+        }
     }
 }
