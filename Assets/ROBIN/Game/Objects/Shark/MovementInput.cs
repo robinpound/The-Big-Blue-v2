@@ -55,11 +55,13 @@ public class MovementInput : MonoBehaviour
     }
     public void FixedUpdate()
     {
-        AnimateRotations();
+        Animate();
+
         if (LeftStick.ReadValue<Vector2>() != new Vector2(0f,0f)){
             RotateTo();
             SwimForward();
         }
+        
     }
 
     private void SwimForward()
@@ -81,10 +83,11 @@ public class MovementInput : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, t); // Rotate
     }
 
-    public void AnimateRotations(){
+    public void Animate(){
         float xRotationChange = transform.rotation.eulerAngles.x - previousRotation.x;
         float yRotationChange = transform.rotation.eulerAngles.y - previousRotation.y; // left, right 
         float zRotationChange = transform.rotation.eulerAngles.z - previousRotation.z;
+        Debug.Log(yRotationChange);
         previousRotation = transform.rotation.eulerAngles; // update for next time        
     }
 }
