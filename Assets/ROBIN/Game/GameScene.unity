@@ -1266,7 +1266,7 @@ MonoBehaviour:
       m_LegacyHeadingDefinition: -1
       m_LegacyVelocityFilterStrength: -1
   m_YAxisRecentering:
-    m_enabled: 1
+    m_enabled: 0
     m_WaitTime: 4
     m_RecenteringTime: 1
     m_LegacyHeadingDefinition: -1
@@ -1436,96 +1436,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410439079}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1470438522 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a75b99ded5d041c4eaee2200a82ec8c7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1484327820}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1470438523 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: a75b99ded5d041c4eaee2200a82ec8c7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1484327820}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1484327820
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 129197437}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: a75b99ded5d041c4eaee2200a82ec8c7,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a75b99ded5d041c4eaee2200a82ec8c7,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a75b99ded5d041c4eaee2200a82ec8c7,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a75b99ded5d041c4eaee2200a82ec8c7,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a75b99ded5d041c4eaee2200a82ec8c7,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a75b99ded5d041c4eaee2200a82ec8c7,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a75b99ded5d041c4eaee2200a82ec8c7,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a75b99ded5d041c4eaee2200a82ec8c7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a75b99ded5d041c4eaee2200a82ec8c7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a75b99ded5d041c4eaee2200a82ec8c7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -2208322404095738598, guid: a75b99ded5d041c4eaee2200a82ec8c7,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 025f7205931240e4c9e1f286df7ab092, type: 2}
-    - target: {fileID: 919132149155446097, guid: a75b99ded5d041c4eaee2200a82ec8c7,
-        type: 3}
-      propertyPath: m_Name
-      value: SharkModel
-      objectReference: {fileID: 0}
-    - target: {fileID: 5866666021909216657, guid: a75b99ded5d041c4eaee2200a82ec8c7,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 70e0896cff823044cb3971c451fdadbe, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a75b99ded5d041c4eaee2200a82ec8c7, type: 3}
 --- !u!1 &1521174953
 GameObject:
   m_ObjectHideFlags: 3
@@ -2011,11 +1921,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2087963981154389961, guid: 55f2c4950ad612d4b97d399f431c2aaa,
         type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1470438523}
-    - target: {fileID: 2087963981154389961, guid: 55f2c4950ad612d4b97d399f431c2aaa,
-        type: 3}
       propertyPath: sharkCamera
       value: 
       objectReference: {fileID: 385156967}
@@ -2074,19 +1979,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6377033812627125479, guid: 55f2c4950ad612d4b97d399f431c2aaa,
-        type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 9000000, guid: f9312de0ae96a324cbbc6f8c374e33f9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
-    - {fileID: 71765462712216540, guid: 55f2c4950ad612d4b97d399f431c2aaa, type: 3}
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5648308562499416943, guid: 55f2c4950ad612d4b97d399f431c2aaa,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1470438522}
+    - {fileID: 7075777329180441745, guid: 55f2c4950ad612d4b97d399f431c2aaa, type: 3}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55f2c4950ad612d4b97d399f431c2aaa, type: 3}
 --- !u!1660057539 &9223372036854775807
