@@ -90,7 +90,8 @@ public class MovementInput : MonoBehaviour
         float xRotationChange = transform.rotation.eulerAngles.x - previousRotation.x;
         float yRotationChange = transform.rotation.eulerAngles.y - previousRotation.y; // left, right 
         float zRotationChange = transform.rotation.eulerAngles.z - previousRotation.z;
-        //animator.SetFloat("xANI", yRotationChange/8, 0f, Time.deltaTime);
+        yRotationChange = Mathf.Clamp(yRotationChange, -8f,8f);
+        animator.SetFloat("xANI", yRotationChange/4, 0f, Time.fixedDeltaTime);
         Debug.Log(yRotationChange);
         previousRotation = transform.rotation.eulerAngles; // update for next time        
     }
