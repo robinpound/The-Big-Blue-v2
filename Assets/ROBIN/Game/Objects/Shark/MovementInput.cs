@@ -84,6 +84,7 @@ public class MovementInput : MonoBehaviour
 
         float t = 1f - Mathf.Exp(-rotationSpeed * Time.fixedDeltaTime);               // Apply Exponential rotation
         transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, t); // Rotate
+        //rb.AddForce(transform.forward * swimSpeed, ForceMode.Force);
     }
 
     public void Animate(){
