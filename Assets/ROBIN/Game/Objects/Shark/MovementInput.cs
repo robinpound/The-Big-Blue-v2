@@ -72,16 +72,21 @@ public class MovementInput : MonoBehaviour
     private void RotateTo()
     {
         Vector2 leftStickInput = LeftStick.ReadValue<Vector2>();
-        Vector3 cameraSharkForwardDirection = sharkCamera.transform.forward;
-        cameraSharkForwardDirection.y = 0f;
-        cameraSharkForwardDirection.Normalize();
 
-        Vector3 inputDirection = sharkCamera.transform.right * leftStickInput.x + cameraSharkForwardDirection * leftStickInput.y;
+        // Read LT and RT input values
+        float ltInput = LT.ReadValue<float>();
+        float rtInput = RT.ReadValue<float>();
+
+        Vector3 cameraSharkForwardDirection = sharkCamera.transform.forward;
+                cameraSharkForwardDirection.y = 0f;
+                cameraSharkForwardDirection.Normalize();
+        //Vector3 inputDirection = sharkCamera.transform.right * leftStickInput.x + cameraSharkForwardDirection * leftStickInput.y;
+        Vector3 inputDirection = (sharkCamera.transform.right * leftStickInput.x + cameraSharkForwardDirection * leftStickInput.y) + sharkCamera.transform.up * (rtInput - ltInput);
+
         Quaternion desiredRotation = Quaternion.LookRotation(inputDirection, Vector3.up);
 
         float t = 1f - Mathf.Exp(-rotationSpeed * Time.fixedDeltaTime);               // Apply Exponential rotation
         transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, t); // Rotate
-        //rb.AddForce(transform.forward * swimSpeed, ForceMode.Force);
     }
 
     public void Animate(){
