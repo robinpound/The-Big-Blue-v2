@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class MovementInput : MonoBehaviour
 {
@@ -55,16 +54,14 @@ public class MovementInput : MonoBehaviour
         XButton.Disable();  
         AButton.Disable();
     }
-    
+
     public void FixedUpdate()
     {
         Animate();
-
         if (LeftStick.ReadValue<Vector2>() != new Vector2(0f,0f)){
             RotateTo();
             SwimForward();
         }
-        
     }
 
     private void SwimForward()
@@ -88,12 +85,23 @@ public class MovementInput : MonoBehaviour
     }
 
     public void Animate(){
-        float xRotationChange = transform.rotation.eulerAngles.x - previousRotation.x;
-        float yRotationChange = transform.rotation.eulerAngles.y - previousRotation.y; // left, right 
-        float zRotationChange = transform.rotation.eulerAngles.z - previousRotation.z;
-        yRotationChange = Mathf.Clamp(yRotationChange, -8f,8f);
-        animator.SetFloat("xANI", yRotationChange/4, 0f, Time.fixedDeltaTime);
-        Debug.Log(yRotationChange);
-        previousRotation = transform.rotation.eulerAngles; // update for next time        
+        Vector3 currentRotation = transform.rotation.eulerAngles;
+        
+        float xRotation = Mathf.Repeat(currentRotation.x, 360f);
+        float yRotation = Mathf.Repeat(currentRotation.y, 360f);
+        float zRotation = Mathf.Repeat(currentRotation.z, 360f);
+
+        float xRotationChange = xRotation - previousRotation.x;
+        float yRotationChange = yRotation - previousRotation.y;
+        float zRotationChange = zRotation - previousRotation.z;
+
+        if (Mathf.Abs(yRotationChange) > 180f)
+        {
+            yRotationChange -= Mathf.Sign(yRotationChange) * 360f;
+        }
+
+        animator.SetFloat("xANI", yRotationChange / 4, 0f, Time.deltaTime);
+
+        previousRotation = new Vector3(xRotation, yRotation, zRotation); // update for next time     
     }
 }
