@@ -48,8 +48,8 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: xANI
     m_Mirror: 0
-  m_BlendParameter: xANI
-  m_BlendParameterY: yANI
+  m_BlendParameter: yANI
+  m_BlendParameterY: zANI
   m_MinThreshold: 0
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
@@ -64,18 +64,18 @@ AnimatorController:
   m_Name: SharkAnimation
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: xANI
-    m_Type: 1
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
   - m_Name: yANI
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
+  - m_Name: zANI
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

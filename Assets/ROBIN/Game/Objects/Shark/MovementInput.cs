@@ -71,6 +71,8 @@ public class MovementInput : MonoBehaviour
 
     private void RotateTo()
     {
+
+
         Vector2 leftStickInput = LeftStick.ReadValue<Vector2>();
 
         // Read LT and RT input values
@@ -104,8 +106,15 @@ public class MovementInput : MonoBehaviour
         {
             yRotationChange -= Mathf.Sign(yRotationChange) * 360f;
         }
+        /*
+        if (Mathf.Abs(zRotationChange) > 180f)
+        {
+            zRotationChange -= Mathf.Sign(zRotationChange) * 360f;
+        }
+        */
 
-        animator.SetFloat("xANI", yRotationChange / 4, 0f, Time.deltaTime);
+        animator.SetFloat("yANI", yRotationChange / 4, 0f, Time.deltaTime);
+        animator.SetFloat("zANI", -(LT.ReadValue<float>() - RT.ReadValue<float>()) * 0.5f, 0f, Time.deltaTime);
 
         previousRotation = new Vector3(xRotation, yRotation, zRotation); // update for next time     
     }
