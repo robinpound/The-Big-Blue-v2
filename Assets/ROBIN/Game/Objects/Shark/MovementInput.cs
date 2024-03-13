@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class MovementInput : MonoBehaviour
 {
@@ -24,9 +25,11 @@ public class MovementInput : MonoBehaviour
     [Header("Settings")]
     public float rotationSpeed;
     public float swimSpeed;
+    public float BiteJumpForce;
 
     [Header("InternalVaribles")]
     private float previousyRotation;
+
 
     public void Start() {
         previousyRotation = transform.rotation.eulerAngles.y;
@@ -57,18 +60,28 @@ public class MovementInput : MonoBehaviour
     public void FixedUpdate()
     {
         Animate();
-        if (LeftStick.ReadValue<Vector2>() != new Vector2(0f,0f)){
-            RotateTo();
-            SwimForward();
+
+        // Movements
+        if (LeftStick.ReadValue<Vector2>() != new Vector2(0f,0f) && !animator.GetBool("Bite")){
+            Rotate();
+            Swim();
+        }
+        // Bite
+        if (AButton.ReadValue<float>() == 1f){
+            rb.AddForce(transform.forward * BiteJumpForce , ForceMode.Impulse);
+            animator.SetBool("Bite", true);
+            Invoke("SetIsBitingFalse", 2.12f); // 2.12 seconds is how long the bite animation takes
         }
     }
 
-    private void SwimForward()
+    private void SetIsBitingFalse() => animator.SetBool("Bite",false);
+    
+    private void Swim()
     {
         rb.AddForce(transform.forward * swimSpeed, ForceMode.Force); // Swim
     }
 
-    private void RotateTo()
+    private void Rotate()
     {
         Vector2 leftStickInput = LeftStick.ReadValue<Vector2>();
 

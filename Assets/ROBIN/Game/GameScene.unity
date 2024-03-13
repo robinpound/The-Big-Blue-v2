@@ -2390,6 +2390,11 @@ PrefabInstance:
       propertyPath: sharkCamera
       value: 
       objectReference: {fileID: 385156967}
+    - target: {fileID: 2087963981154389961, guid: 55f2c4950ad612d4b97d399f431c2aaa,
+        type: 3}
+      propertyPath: BiteJumpForce
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2347455907201769530, guid: 55f2c4950ad612d4b97d399f431c2aaa,
         type: 3}
       propertyPath: m_Convex
