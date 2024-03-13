@@ -26,11 +26,10 @@ public class MovementInput : MonoBehaviour
     public float swimSpeed;
 
     [Header("InternalVaribles")]
-    private Vector3 previousRotation;
+    private float previousyRotation;
 
     public void Start() {
-        previousRotation = transform.rotation.eulerAngles;
-        //animator.SetFloat("Rx", xAxisAnimation, 0f, Time.deltaTime);
+        previousyRotation = transform.rotation.eulerAngles.y;
     }
 
     public void OnEnable() {
@@ -71,8 +70,6 @@ public class MovementInput : MonoBehaviour
 
     private void RotateTo()
     {
-
-
         Vector2 leftStickInput = LeftStick.ReadValue<Vector2>();
 
         // Read LT and RT input values
@@ -93,29 +90,16 @@ public class MovementInput : MonoBehaviour
 
     public void Animate(){
         Vector3 currentRotation = transform.rotation.eulerAngles;
-        
-        float xRotation = Mathf.Repeat(currentRotation.x, 360f);
         float yRotation = Mathf.Repeat(currentRotation.y, 360f);
-        float zRotation = Mathf.Repeat(currentRotation.z, 360f);
-
-        float xRotationChange = xRotation - previousRotation.x;
-        float yRotationChange = yRotation - previousRotation.y;
-        float zRotationChange = zRotation - previousRotation.z;
-
+        float yRotationChange = yRotation - previousyRotation;
         if (Mathf.Abs(yRotationChange) > 180f)
         {
             yRotationChange -= Mathf.Sign(yRotationChange) * 360f;
         }
-        /*
-        if (Mathf.Abs(zRotationChange) > 180f)
-        {
-            zRotationChange -= Mathf.Sign(zRotationChange) * 360f;
-        }
-        */
-
-        animator.SetFloat("yANI", yRotationChange / 4, 0f, Time.deltaTime);
+        float value = Mathf.Lerp(animator.GetFloat("yANI"), yRotationChange/4, Time.deltaTime * 10);
+        animator.SetFloat("yANI", value, 0f, Time.deltaTime);
         animator.SetFloat("zANI", -(LT.ReadValue<float>() - RT.ReadValue<float>()) * 0.5f, 0f, Time.deltaTime);
 
-        previousRotation = new Vector3(xRotation, yRotation, zRotation); // update for next time     
+        previousyRotation = yRotation; // update for next time     
     }
 }
