@@ -1116,33 +1116,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &853631460 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8524849043809801284, guid: 55f2c4950ad612d4b97d399f431c2aaa,
-    type: 3}
-  m_PrefabInstance: {fileID: 3620577320506570491}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &853631463
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 853631460}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.70672244, y: 1, z: 1.1280681}
-  m_Center: {x: 0.0000026278863, y: 0, z: 2.8399675}
 --- !u!1 &871139253
 GameObject:
   m_ObjectHideFlags: 0
@@ -2390,16 +2363,6 @@ PrefabInstance:
       propertyPath: sharkCamera
       value: 
       objectReference: {fileID: 385156967}
-    - target: {fileID: 2087963981154389961, guid: 55f2c4950ad612d4b97d399f431c2aaa,
-        type: 3}
-      propertyPath: BiteJumpForce
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2347455907201769530, guid: 55f2c4950ad612d4b97d399f431c2aaa,
-        type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3733714892078171598, guid: 55f2c4950ad612d4b97d399f431c2aaa,
         type: 3}
       propertyPath: m_Name
@@ -2455,15 +2418,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2347455907201769530, guid: 55f2c4950ad612d4b97d399f431c2aaa, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8524849043809801284, guid: 55f2c4950ad612d4b97d399f431c2aaa,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 853631463}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55f2c4950ad612d4b97d399f431c2aaa, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
