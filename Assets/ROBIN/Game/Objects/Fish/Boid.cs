@@ -115,7 +115,6 @@ public class Boid : MonoBehaviour
 
         // Weight the avoidance direction based on the distance from walls
         direction += wallAvoidanceDirection.normalized;
-
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
 
         // Move the fish smoothly
