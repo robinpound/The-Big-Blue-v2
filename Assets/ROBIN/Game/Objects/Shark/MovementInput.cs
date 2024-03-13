@@ -65,6 +65,9 @@ public class MovementInput : MonoBehaviour
         if (LeftStick.ReadValue<Vector2>() != new Vector2(0f,0f) && !animator.GetBool("Bite")){
             Rotate();
             Swim();
+        } else if (LeftStick.ReadValue<Vector2>() == new Vector2(0f,0f) && (LT.ReadValue<float>() != 0f || RT.ReadValue<float>() != 0f)) {
+            RotateUpDownOnly();
+            Swim();
         }
         // Bite
         if (AButton.ReadValue<float>() == 1f){
@@ -74,10 +77,24 @@ public class MovementInput : MonoBehaviour
         }
     }
 
+    private void RotateUpDownOnly()
+    {
+        // Read LT and RT input values
+        float ltInput = LT.ReadValue<float>();
+        float rtInput = RT.ReadValue<float>();
+    
+        Vector3 inputDirection = sharkCamera.transform.forward + new Vector3(0, rtInput - ltInput, 0);
+        Quaternion desiredRotation = Quaternion.LookRotation(inputDirection, Vector3.up);
+
+        float t = 1f - Mathf.Exp(-rotationSpeed * Time.fixedDeltaTime);               // Apply Exponential rotation
+        transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, t); // Rotate
+    }
+
     private void SetIsBitingFalse() => animator.SetBool("Bite",false);
     
     private void Swim()
     {
+        
         rb.AddForce(transform.forward * swimSpeed, ForceMode.Force); // Swim
     }
 
