@@ -1,0 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CamMoveLandmark : MonoBehaviour
+{
+    [SerializeField] GameObject destination;
+
+    // Adjust this value to control the speed of movement
+    [SerializeField] float movementSpeed = 1.0f;
+
+    public void StartMoveSequence()
+    {
+        while (transform.position != destination.transform.position){
+            transform.position = Vector3.Lerp(transform.position, destination.transform.position, movementSpeed * Time.deltaTime);
+            Debug.Log("Whiling");
+        }
+    }
+}
