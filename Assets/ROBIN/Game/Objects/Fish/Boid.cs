@@ -11,6 +11,7 @@ public class Boid : MonoBehaviour
     public float alignmentWeight = 1f;
     public float cohesionWeight = 1f;
     public float separationWeight = 1f;
+    public float SpeedAverageDistance = 1f;
     public Vector3 boundarySize = new Vector3(10f, 10f, 10f);
 
     public GameObject shark;
@@ -28,6 +29,7 @@ public class Boid : MonoBehaviour
     {
         FindNeighbors();
         CalculateBehaviors();
+        SharkAvoidance();
         Move();
     }
 
@@ -63,6 +65,10 @@ public class Boid : MonoBehaviour
             {
                 separationVector -= (neighbor.transform.position - transform.position);
             }
+            if (Vector3.Distance(transform.position, neighbor.transform.position) < SpeedAverageDistance){
+                float targetSpeed = neighbor.speed;
+                speed += (targetSpeed - speed) * 0.01f; // Adjust speed by 1% towards the target speed
+            }
         }
         if (neighbors.Count > 0)
         {
@@ -70,25 +76,22 @@ public class Boid : MonoBehaviour
             cohesionVector = cohesionVector - transform.position;
             alignmentVector /= neighbors.Count;
         }
-
-        SharkAvoidance();
     }
     void SharkAvoidance()
     {
         if (shark != null && Vector3.Distance(transform.position, shark.transform.position) < sharkSeparationDistance)
         {
-            float distanceToShark = Vector3.Distance(transform.position, shark.transform.position);
-            float speedFactor = Mathf.Lerp(1f, 2f, 1f - (distanceToShark / sharkSeparationDistance));
-            speed = SPEED * speedFactor;
+            speed += 0.2f;
             Vector3 awayFromSharkDirection = transform.position - shark.transform.position;
             awayFromSharkDirection.Normalize();
             Quaternion awayFromSharkRotation = Quaternion.LookRotation(awayFromSharkDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, awayFromSharkRotation, rotationSpeed * 2f * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, awayFromSharkRotation, rotationSpeed * 5f * Time.deltaTime);
         }
         else
         {
-            speed = SPEED;
+            if (speed > SPEED) speed -= 0.01f;
         }
+        
     }
 
     void Move()
