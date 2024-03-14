@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class Boid : MonoBehaviour
 {
@@ -81,7 +82,7 @@ public class Boid : MonoBehaviour
     {
         if (shark != null && Vector3.Distance(transform.position, shark.transform.position) < sharkSeparationDistance)
         {
-            speed += 0.2f;
+            StartCoroutine(ExampleCoroutine());
             Vector3 awayFromSharkDirection = transform.position - shark.transform.position;
             awayFromSharkDirection.Normalize();
             Quaternion awayFromSharkRotation = Quaternion.LookRotation(awayFromSharkDirection);
@@ -89,9 +90,14 @@ public class Boid : MonoBehaviour
         }
         else
         {
-            if (speed > SPEED) speed -= 0.01f;
+            if (speed > SPEED) speed -= 0.001f;
         }
-        
+    }
+
+    IEnumerator ExampleCoroutine(){
+        speed += 0.1f;
+        yield return new WaitForSeconds(5);
+        if (speed > SPEED) speed -= 0.05f;
     }
 
     void Move()
