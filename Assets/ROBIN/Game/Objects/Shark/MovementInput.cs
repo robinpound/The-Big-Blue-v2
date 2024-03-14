@@ -88,7 +88,6 @@ public class MovementInput : MonoBehaviour
     
     private void Swim()
     {
-        
         rb.AddForce(transform.forward * swimSpeed, ForceMode.Force); // Swim
     }
 
