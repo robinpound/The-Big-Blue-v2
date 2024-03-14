@@ -11,9 +11,17 @@ public class CamMoveLandmark : MonoBehaviour
 
     public void StartMoveSequence()
     {
+        Invoke("Corout", 1f);
+    }
+
+    private void Corout() => StartCoroutine(Lerping());
+
+    IEnumerator Lerping()
+    {
         while (transform.position != destination.transform.position){
             transform.position = Vector3.Lerp(transform.position, destination.transform.position, movementSpeed * Time.deltaTime);
             Debug.Log("Whiling");
+            yield return null;
         }
     }
 }
