@@ -37,7 +37,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: b5e8007bd06fc9c44b80db5a051a1967, type: 2}
     m_Threshold: 0
     m_Position: {x: -1, y: 0}
-    m_TimeScale: 2
+    m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: xANI
     m_Mirror: 0
@@ -69,7 +69,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: 81207c9f46d041b4282aaa9bcb44c371, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 1.5
     m_CycleOffset: 0
     m_DirectBlendParameter: xANI
     m_Mirror: 0
@@ -94,19 +94,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: zANI
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Bite
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
