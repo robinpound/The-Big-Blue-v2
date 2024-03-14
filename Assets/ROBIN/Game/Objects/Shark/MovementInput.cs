@@ -69,12 +69,6 @@ public class MovementInput : MonoBehaviour
             RotateUpDownOnly();
             Swim();
         }
-        // Bite
-        if (AButton.ReadValue<float>() == 1f){
-            rb.AddForce(transform.forward * BiteJumpForce , ForceMode.Impulse);
-            animator.SetBool("Bite", true);
-            Invoke("SetIsBitingFalse", 2.12f); // 2.12 seconds is how long the bite animation takes
-        }
     }
 
     private void RotateUpDownOnly()
