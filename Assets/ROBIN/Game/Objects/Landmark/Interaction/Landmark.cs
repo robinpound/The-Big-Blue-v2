@@ -9,6 +9,7 @@ public class Landmark : MonoBehaviour
     [SerializeField] private GameObject Shark;
     [SerializeField] private GameObject SharkInteractor;
     [SerializeField] private GameObject LandmarkCamera;
+    [SerializeField] private UIManager uIManager;
 
     private void Start() {
         HasTriggered = false;
@@ -45,9 +46,14 @@ public class Landmark : MonoBehaviour
 
     private void CameraPan()
     {
+        uIManager.FadeLandmarkTitleTo(1f, 0.3f);
         LandmarkCamera.SetActive(true);
         LandmarkCamera.GetComponent<CamMoveLandmark>().StartMoveSequence();
         Invoke ("SetCameraFalse", 10f);
     }
-    private void SetCameraFalse() => LandmarkCamera.SetActive(false);
+    private void SetCameraFalse() {
+        uIManager.FadeLandmarkTitleTo(0f, 6f);
+        uIManager.FadeLandmarkBottomTextTo(1f, 1f);
+        LandmarkCamera.SetActive(false);
+    }
 }

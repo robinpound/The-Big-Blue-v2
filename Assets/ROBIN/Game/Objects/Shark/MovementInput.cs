@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -21,6 +22,7 @@ public class MovementInput : MonoBehaviour
     public Rigidbody rb;
     public GameObject sharkCamera;
     public Animator animator;
+    public UIManager uIManager;
 
     [Header("Settings")]
     public float rotationSpeed;
@@ -68,6 +70,9 @@ public class MovementInput : MonoBehaviour
         } else if (LeftStick.ReadValue<Vector2>() == new Vector2(0f,0f) && (LT.ReadValue<float>() != 0f || RT.ReadValue<float>() != 0f)) {
             RotateUpDownOnly();
             Swim();
+        }
+        if (AButton.ReadValue<float>() > 0f) {
+            uIManager.FadeLandmarkBottomTextTo(0f, 1f);
         }
     }
 
