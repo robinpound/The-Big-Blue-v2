@@ -2104,7 +2104,7 @@ Transform:
   m_GameObject: {fileID: 315507323}
   serializedVersion: 2
   m_LocalRotation: {x: -3.3087268e-24, y: -0.0011465381, z: 1.1248039e-27, w: 0.99999934}
-  m_LocalPosition: {x: -23.001387, y: 27.6, z: 54.837288}
+  m_LocalPosition: {x: -18.525875, y: 27.6, z: 57.99609}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2151,8 +2151,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385156967}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.010640707, y: 0.73753214, z: 0.011624259, w: 0.67512816}
-  m_LocalPosition: {x: 23.024319, y: -27.6, z: 0.7727535}
+  m_LocalRotation: {x: -0.01571054, y: -0.07840372, z: -0.0012357227, w: 0.99679714}
+  m_LocalPosition: {x: 18.548807, y: -27.6, z: -2.3860488}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4974,7 +4974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &832575518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6723,7 +6723,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1047228784}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.021257695, y: 0.7372581, z: 0.023222601, w: 0.67487735}
+  m_LocalRotation: {x: -0.031386048, y: -0.07837459, z: -0.0024686898, w: 0.99642676}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8603,7 +8603,7 @@ Transform:
   m_GameObject: {fileID: 1272359790}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.024319, y: -27.6, z: 0.7727535}
+  m_LocalPosition: {x: 18.548807, y: -27.6, z: -2.3860488}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11214,7 +11214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521174953}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.010640707, y: 0.73753214, z: 0.011624259, w: 0.67512816}
+  m_LocalRotation: {x: -0.01571054, y: -0.07840372, z: -0.0012357227, w: 0.99679714}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16183,6 +16183,36 @@ PrefabInstance:
       propertyPath: BiteJumpForce
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2087963981154389961, guid: 55f2c4950ad612d4b97d399f431c2aaa,
+        type: 3}
+      propertyPath: LeftClick.m_Id
+      value: 5df29b52-3dd4-4ab6-ac57-6f2266ce61f0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087963981154389961, guid: 55f2c4950ad612d4b97d399f431c2aaa,
+        type: 3}
+      propertyPath: LeftClick.m_Name
+      value: Left Click
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087963981154389961, guid: 55f2c4950ad612d4b97d399f431c2aaa,
+        type: 3}
+      propertyPath: LeftClick.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087963981154389961, guid: 55f2c4950ad612d4b97d399f431c2aaa,
+        type: 3}
+      propertyPath: LeftClick.m_SingletonActionBindings.Array.data[0].m_Id
+      value: d2e1e1c1-ecf0-41a0-9b66-cd544f34e1b8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087963981154389961, guid: 55f2c4950ad612d4b97d399f431c2aaa,
+        type: 3}
+      propertyPath: LeftClick.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <XInputController>/leftStickPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087963981154389961, guid: 55f2c4950ad612d4b97d399f431c2aaa,
+        type: 3}
+      propertyPath: LeftClick.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Left Click
+      objectReference: {fileID: 0}
     - target: {fileID: 3733714892078171598, guid: 55f2c4950ad612d4b97d399f431c2aaa,
         type: 3}
       propertyPath: m_Name
@@ -16191,7 +16221,7 @@ PrefabInstance:
     - target: {fileID: 5648308562499416943, guid: 55f2c4950ad612d4b97d399f431c2aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 33
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5648308562499416943, guid: 55f2c4950ad612d4b97d399f431c2aaa,
         type: 3}
@@ -16201,7 +16231,7 @@ PrefabInstance:
     - target: {fileID: 5648308562499416943, guid: 55f2c4950ad612d4b97d399f431c2aaa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 7.6
       objectReference: {fileID: 0}
     - target: {fileID: 5648308562499416943, guid: 55f2c4950ad612d4b97d399f431c2aaa,
         type: 3}

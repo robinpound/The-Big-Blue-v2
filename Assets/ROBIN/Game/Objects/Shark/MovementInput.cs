@@ -17,6 +17,7 @@ public class MovementInput : MonoBehaviour
     public InputAction YButton;
     public InputAction XButton;
     public InputAction AButton;
+    public InputAction LeftClick;
 
     [Header("References")]
     public Rigidbody rb;
