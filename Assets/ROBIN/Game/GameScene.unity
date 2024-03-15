@@ -2151,7 +2151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385156967}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.010640709, y: 0.73753214, z: 0.011624259, w: 0.67512816}
+  m_LocalRotation: {x: -0.010640707, y: 0.73753214, z: 0.011624259, w: 0.67512816}
   m_LocalPosition: {x: 23.024319, y: -27.6, z: 0.7727535}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3630,6 +3630,7 @@ GameObject:
   - component: {fileID: 609754011}
   - component: {fileID: 609754010}
   - component: {fileID: 609754009}
+  - component: {fileID: 609754012}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -3745,6 +3746,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &609754012
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609754007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 46965f9cbaf525742a6da4c2172a99cd, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0.25
+  m_FrequencyGain: 1
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &612441672
 GameObject:
   m_ObjectHideFlags: 0
@@ -6705,7 +6723,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1047228784}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.021257695, y: 0.7372581, z: 0.023222603, w: 0.67487735}
+  m_LocalRotation: {x: -0.021257695, y: 0.7372581, z: 0.023222601, w: 0.67487735}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10739,12 +10757,17 @@ PrefabInstance:
     - target: {fileID: 5061172425110250581, guid: e54f5a3e0f219d442ac2bfc2cfccf2fb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.599
+      value: 3.1
       objectReference: {fileID: 0}
     - target: {fileID: 5061172425110250581, guid: e54f5a3e0f219d442ac2bfc2cfccf2fb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.74
+      value: 33.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5765280591879490858, guid: e54f5a3e0f219d442ac2bfc2cfccf2fb,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7458871012014933744, guid: e54f5a3e0f219d442ac2bfc2cfccf2fb,
         type: 3}
@@ -11191,7 +11214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521174953}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.010640706, y: 0.73753214, z: 0.011624258, w: 0.67512816}
+  m_LocalRotation: {x: -0.010640707, y: 0.73753214, z: 0.011624259, w: 0.67512816}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11775,7 +11798,7 @@ PrefabInstance:
     - target: {fileID: 5061172425110250581, guid: e54f5a3e0f219d442ac2bfc2cfccf2fb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.24
+      value: 23.6
       objectReference: {fileID: 0}
     - target: {fileID: 5061172425110250581, guid: e54f5a3e0f219d442ac2bfc2cfccf2fb,
         type: 3}
@@ -11785,7 +11808,7 @@ PrefabInstance:
     - target: {fileID: 5061172425110250581, guid: e54f5a3e0f219d442ac2bfc2cfccf2fb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.2
+      value: 24.84
       objectReference: {fileID: 0}
     - target: {fileID: 5765280591879490858, guid: e54f5a3e0f219d442ac2bfc2cfccf2fb,
         type: 3}
@@ -16135,6 +16158,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2087963981154389961, guid: 55f2c4950ad612d4b97d399f431c2aaa,
+        type: 3}
+      propertyPath: swimSpeed
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 2087963981154389961, guid: 55f2c4950ad612d4b97d399f431c2aaa,
         type: 3}
       propertyPath: uIManager

@@ -46,7 +46,7 @@ public class Landmark : MonoBehaviour
 
     private void CameraPan()
     {
-        uIManager.FadeLandmarkTitleTo(1f, 0.3f);
+        uIManager.FadeLandmarkTitleTo(1f, 0.8f);
         LandmarkCamera.SetActive(true);
         LandmarkCamera.GetComponent<CamMoveLandmark>().StartMoveSequence();
         Invoke ("SetCameraFalse", 10f);
