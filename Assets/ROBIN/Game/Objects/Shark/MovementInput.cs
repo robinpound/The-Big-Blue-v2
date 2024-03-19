@@ -32,10 +32,12 @@ public class MovementInput : MonoBehaviour
 
     [Header("InternalVaribles")]
     private float previousyRotation;
+    private float previousValue;
 
 
     public void Start() {
         previousyRotation = transform.rotation.eulerAngles.y;
+        previousValue = 0f;
     }
 
     public void OnEnable() {
@@ -125,10 +127,18 @@ public class MovementInput : MonoBehaviour
         {
             yRotationChange -= Mathf.Sign(yRotationChange) * 360f;
         }
+        
+
         float value = Mathf.Lerp(animator.GetFloat("yANI"), yRotationChange/4, Time.deltaTime * 10);
+        float ValueChange = value - previousValue;
+
+        Debug.Log("yRotationChange: " + Mathf.Abs(ValueChange) * 10);
+        rb.AddForce(transform.forward *  Mathf.Abs(ValueChange) * 10, ForceMode.Impulse); // add move rb on turns
+
         animator.SetFloat("yANI", value, 0f, Time.deltaTime);
         animator.SetFloat("zANI", -(LT.ReadValue<float>() - RT.ReadValue<float>()) * 0.5f, 0f, Time.deltaTime);
 
-        previousyRotation = yRotation; // update for next time     
+        previousyRotation = yRotation; // update for next time  
+        previousValue = value;   
     }
 }
