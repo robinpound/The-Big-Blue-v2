@@ -217,12 +217,30 @@ MonoBehaviour:
       m_Action: A Button
       m_Flags: 0
     m_Flags: 0
+  LeftClick:
+    m_Name: Left Click
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 5df29b52-3dd4-4ab6-ac57-6f2266ce61f0
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: d2e1e1c1-ecf0-41a0-9b66-cd544f34e1b8
+      m_Path: <XInputController>/leftStickPress
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Left Click
+      m_Flags: 0
+    m_Flags: 0
   rb: {fileID: 8118599304996930108}
   sharkCamera: {fileID: 0}
   animator: {fileID: 4969313093781029272}
+  uIManager: {fileID: 0}
   rotationSpeed: 2
-  swimSpeed: 7
-  BiteJumpForce: 2
+  swimSpeed: 10
+  BiteJumpForce: 1
 --- !u!54 &8118599304996930108
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -249,7 +267,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!95 &4969313093781029272
 Animator:
   serializedVersion: 5
