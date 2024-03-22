@@ -135,7 +135,7 @@ public class MovementInput : MonoBehaviour
         // Rotation causes movement
         float ValueChange = Mathf.Abs(value - previousValue);
         turningMomentum = Mathf.Lerp(turningMomentum, ValueChange, Time.deltaTime);
-        rb.AddForce(transform.forward *  turningMomentum * 10, ForceMode.Impulse); // add move rb on turns
+        rb.AddForce(transform.forward *  turningMomentum * 6, ForceMode.Impulse); // add move rb on turns
 
         //animtaion
         animator.SetFloat("yANI", value, 0f, Time.deltaTime);
